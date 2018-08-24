@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="200px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>add_patent_attorney</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="外观设计界面" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="委托并支付" transform="translate(-275.000000, -291.000000)">
+            <g id="专利代理委托书" transform="translate(0.000000, 216.000000)">
+                <g id="主视图" transform="translate(275.000000, 75.000000)">
+                    <rect id="add_patent_attorney" fill="#F2F2F2" x="0" y="0" width="200" height="200"></rect>
+                    <g id="add_patent_attorney" transform="translate(35.000000, 9.000000)">
+                        <rect id="纸张" stroke="#EBE9EA" fill="#FFFFFF" x="0" y="0" width="130" height="183"></rect>
+                        <path d="M36.862069,32 L93.137931,32 L93.137931,40.3333333 L36.862069,40.3333333 L36.862069,32 Z M17,53.6666667 L113,53.6666667 L113,62 L17,62 L17,53.6666667 Z M17,72 L113,72 L113,80.3333333 L17,80.3333333 L17,72 Z M17,90.3333333 L113,90.3333333 L113,98.6666667 L17,98.6666667 L17,90.3333333 Z M17,108.666667 L113,108.666667 L113,117 L17,117 L17,108.666667 Z" id="内容" fill="#EBE9EC"></path>
+                        <circle id="Oval-4" stroke="#D6252B" cx="92.5" cy="144.5" r="21.5"></circle>
+                        <polygon id="Star" fill="#D6252B" transform="translate(92.950113, 143.201074) rotate(-30.000000) translate(-92.950113, -143.201074) " points="92.9501133 151.118511 85.1351359 155.227088 86.6276638 146.524983 80.3052142 140.362117 89.0426246 139.092497 92.9501133 131.17506 96.8576021 139.092497 105.595012 140.362117 99.2725629 146.524983 100.765091 155.227088"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

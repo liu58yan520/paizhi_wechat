@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="140px" height="140px" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>download_template</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="外观设计界面" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="修改代理委托书" transform="translate(-410.000000, -335.000000)">
+            <g id="身份ID" transform="translate(0.000000, 225.000000)">
+                <g id="下载模板" transform="translate(410.000000, 110.000000)">
+                    <rect id="download_template" fill="#F2F2F2" x="0" y="0" width="140" height="140"></rect>
+                    <g id="add_patent_attorney" transform="translate(34.000000, 19.000000)">
+                        <rect id="纸张" stroke="#EBE9EA" fill="#FFFFFF" x="0" y="0" width="72" height="102"></rect>
+                        <path d="M19.9655172,18 L51.0344828,18 L51.0344828,22.6078431 L19.9655172,22.6078431 L19.9655172,18 Z M9,29.9803922 L62,29.9803922 L62,34.5882353 L9,34.5882353 L9,29.9803922 Z M9,40.1176471 L62,40.1176471 L62,44.7254902 L9,44.7254902 L9,40.1176471 Z M9,50.254902 L62,50.254902 L62,54.8627451 L9,54.8627451 L9,50.254902 Z M9,60.3921569 L62,60.3921569 L62,65 L9,65 L9,60.3921569 Z" id="内容" fill="#EBE9EC"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

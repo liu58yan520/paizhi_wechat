@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="56px" viewBox="0 0 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>information_edit</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="外观设计界面" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="申请人管理" transform="translate(-656.000000, -660.000000)">
+            <g id="list-4" transform="translate(0.000000, 608.000000)">
+                <rect id="information_edit_normal" fill-rule="nonzero" x="656" y="52" width="56" height="56"></rect>
+                <g id="编辑-(1)" transform="translate(665.000000, 58.000000)" fill="#CCCCCC">
+                    <rect id="Rectangle-2" x="1" y="42" width="36" height="2"></rect>
+                    <path d="M11.5796288,32.6698965 L16.4226505,32.6698965 L16.4226505,10.3589562 L18.0011396,10.3589562 L18.0011396,36.6401633 L18.0166309,36.6518368 L14.9714112,40.6929798 L14.973417,40.6956673 L14.0125734,41.9957468 L14.0011396,41.9805737 L13.9897059,41.9957468 L13.8324608,41.7567294 L9.98564834,36.6518368 L10.0011396,36.6401633 L10.0011396,10.3589562 L11.5796288,10.3589562 L11.5796288,32.6698965 Z M11.5796288,34.2635351 L11.5796288,36.1485072 L14.005341,39.3985927 L16.4226505,36.1498716 L16.4226505,34.2635351 L11.5796288,34.2635351 Z M10.0011396,0.000305366238 L17.8935856,0.000305366238 L17.8935856,6.37485973 L10.0011396,6.37485973 L10.0011396,0.000305366238 Z M11.5796288,1.59394396 L11.5796288,4.78122114 L16.3150964,4.78122114 L16.3150964,1.59394396 L11.5796288,1.59394396 Z" id="Combined-Shape" transform="translate(14.001140, 20.998026) rotate(-330.000000) translate(-14.001140, -20.998026) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
