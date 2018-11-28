@@ -15,9 +15,9 @@ export default new Router({
         title:'派智知识产权平台'
       },
       children:[
-        { path: '/home/home',   component: (resolve) => require(['@/components/home/home.vue'], resolve)},
-        { path: '/home/patent', component: (resolve) => require(['@/components/home/patent.vue'], resolve)},
-        { path: '/home/me',     component: (resolve) => require(['@/components/home/me.vue'], resolve)}
+        { path: '/home',   component: (resolve) => require(['@/components/home/home.vue'], resolve)},
+        { path: '/patent', component: (resolve) => require(['@/components/home/patent.vue'], resolve)},
+        { path: '/me',     component: (resolve) => require(['@/components/home/me.vue'], resolve)}
       ]
     },{
       path: '/apply_before',

@@ -165,7 +165,7 @@
             <h4 class="contact"><span>联系人</span><span>( 请输入专利联系人号码 )</span></h4>
             <label class="contact_num">+86<input type="number" minlength="11" maxlength="11" v-model="contact"> </label>
         </div>
-        <button class="fm_btn" :disabled='select_design_man.length==0 || select_apply_man.length==0 || test_tel' >  <router-link :to="{name:'pay'}">  下一步 </router-link></button>
+        <button class="fm_btn" :disabled='test_tel || select_design_man.length==0 || select_apply_man.length==0' @click="$router.push({name:'pay'})"> 下一步</button>
     </div>
 </template>
 <script>
@@ -180,11 +180,15 @@ export default {
     computed:{
         ...mapState(["select_design_man",'select_apply_man']),
         test_tel(){
-            return !(/^[1][3,4,5,7,8][0-9]{9}$/.test(this.contact))
+            let tel= !(/^[1][3,4,5,7,8][0-9]{9}$/.test(this.contact))
+            if(!tel) 
+                this.$store.commit('set_contact',this.contact)
+            return tel
         }
     },
     created(){
         this.$store.commit('set_person_init',true)
+        this.contact=this.$store.state.contact
     },
     store
 }

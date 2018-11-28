@@ -379,7 +379,7 @@ export default {
                 type:2,
                 title:'一种不规则形状的包装盒子',
                 color:true,
-                pay:false,
+                pay:true,
                 feijian:true,
                 cost:{
                     service:600,

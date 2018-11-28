@@ -1,87 +1,9 @@
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #333;
-}
-html,body,h1,h2,h3,h4,h5,h6,p,hr{ font-weight:normal;text-decoration: none;padding: 0;margin: 0;border:0;background: transparent;}
-html,body{
-  background: #fff;
-   font-family:"PingFangSC",'Microsoft YaHei',BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-img{
-  width:100%;
-  display: block;
-}
-i{
-  font-style: normal;
-}
-ol,ul{ list-style: none;}
-.clear{clear: both;}
-a{text-decoration: none;color: inherit; display: block;}
- hr{
-  height: 8px;
-  background: #F2F2F2;
-}
-.list{
-   text-align: left;
-}
 
-.list li{
-  width:93%;
-  /* font-size: 14px; */
-  font-size: 3.8vw;
-  margin: auto;
-  border-bottom: 1px solid #eee;
-  padding:3vw 0;
-} 
-.fm_btn{
-    position: fixed;
-    bottom: 15px;
-    display: block;
-    width:88%;
-    color: #fff;
-    background: #24A1F5;
-    border:0;
-    border-radius: 10px;
-    padding: 2.5vw 0;
-    font-size: 4.2vw;
-    left: 0;right: 0;
-    outline: none;
-    margin: auto;
-}
-button:disabled{
-  background: #ddd;
-}
-
-#case_pic_btn{
-    width:70%;
-    padding: 1.3vw 0;
-    margin: auto;
-    color: #fff;
-    border-radius: 4px;
-    background: #24A1F5;
-    font-size: 4vw;
-    border:0;
-    display: block;
-    z-index: 10001;
-}
-.van-switch{ background: #f2f2f2!important;}
-.van-switch--on{ background: #24A1F5 !important; }
-.van-cell{ padding:12px 15px;}
-input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {  color:#999; }
-button{ user-select:none;}
-</style>
 <template>
   <div id="app">
     <router-view></router-view>
   </div>
 </template>
-<script>
-export default {
-  name: 'App'
-}
-</script>
+
 
 

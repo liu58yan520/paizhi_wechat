@@ -149,8 +149,8 @@
     <div class="pay">
         <reply/>
         <hr>
-        <img :src="upload_case_img" class="weitu_case" @click="upload_case_alert=true">
-        <h3>专利代理委托书</h3>
+        <img :src="upload_case_img" class="weitu_case">
+        <h3>{{book_name}}</h3>
         <div class="btns">
             <button @click="upload_case_alert=true">上传</button>
             <button><router-link :to="{name:'book_list',params:{select:true}}">去列表选择</router-link></button>
@@ -197,6 +197,7 @@ export default {
         return {
             feijian:true,
             cost_active:[],
+            book_name:'专利代理委托书',
             upload_case_img:'static/add_patent_attorney.png',
             upload_case_alert:false,
             cost:{
@@ -226,6 +227,14 @@ export default {
                 confirmButtonText:"我知道了"
             });
         }
+    },
+    created(){
+        let book_index=this.$route.params.book_index
+        if(book_index>-1){
+            this.book_name=this.$store.state.book[book_index].name
+            this.upload_case_img=this.$store.state.book[book_index].img
+        }
+            
     },
     computed:{
         count_pay:function(){

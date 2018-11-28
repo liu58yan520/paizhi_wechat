@@ -5,7 +5,7 @@ const state={
     type:0,
     person_init:false,
     all_design_man:[
-        { id:'1',name:'a',card:'3222222222222'},
+        { id:'1',name:'a',card:'3222222222222',public:true,country:'中国(CH)'},
         { id:'2',name:'b',card:'3222222222222'},
         { id:'4',name:'c',card:'3222222222222'}
     ],
@@ -21,11 +21,14 @@ const state={
         {name:'冈本有限公司',img:'static/book.jpg'},
         {name:'冈本有限公司',img:'static/book.jpg'},
         {name:'冈本有限公司',img:'static/book.jpg'},
-    ]
-
+    ],
+    contact:'',
     
 }
 const mutations = {
+        set_contact(state,data){
+            state.contact=data
+        },
         set_person_init(state,data){
             state.person_init=data
         },

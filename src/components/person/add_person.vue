@@ -178,7 +178,10 @@ export default {
             this.$router.push({name:'list_person'})
         this.type=this.$route.params.type
         document.title=this.type? "添加申请人":"添加设计人"
-        
+        let person_index=this.$route.params.person_index
+        if(person_index>-1){
+           this.formdata= this.type?this.$store.state.all_apply_man[person_index]:this.$store.state.all_design_man[person_index]
+        }
     },store
 }
 </script>

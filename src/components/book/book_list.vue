@@ -144,7 +144,7 @@
 
         </div>
         <div class="bg_btn">
-            <button v-if="select" style="width:45%;background:#ccc" >确认</button>
+            <button v-if="select" style="width:45%;background:#ccc" @click=" $router.push({name:'pay',params:{book_index:select_index}}) ">确认</button>
             <button :style="{'width':select ?'45%':'88%'}" @click="book_add_model=true">新增委托书</button>
         </div>
 
@@ -165,7 +165,7 @@ export default {
     data(){
         return {
             select:false,
-            select_index:'',
+            select_index:null,
             upload_case_model:false,
             book_add_model:false,
             add:{
@@ -209,7 +209,6 @@ export default {
     },
     created(){
         this.select=this.$route.params.select
-        console.log(this.select)
     }
 }
 </script>

@@ -88,7 +88,7 @@
         </g>
     </g>
 </svg>
-                <span :style="{color:nav_ment=='me'?'#01C0FF':'#ccc'}">我的</span></div>
+            <span :style="{color:nav_ment=='me'?'#01C0FF':'#ccc'}">我的</span></div>
         </div>
     </div>
 
@@ -103,7 +103,7 @@ export default {
     methods:{
         nav:function(str){
             this.nav_ment=str
-            this.$router.push({path:'/home/'+str})
+            this.$router.push({path:'/'+str})
         }
     },
     created(){

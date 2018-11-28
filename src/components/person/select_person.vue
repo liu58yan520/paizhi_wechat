@@ -72,7 +72,9 @@
                         <h4>{{v.name}}</h4>
                         <p>{{v.card}}</p>
                     </div>
+                    <router-link :to="{name:'add_person',params:{type:type,person_index:i}}">
                     <img src="static/information_edit.svg">
+                    </router-link>
                 </li>
             </ul>
             

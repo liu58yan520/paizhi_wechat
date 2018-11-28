@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 import { Icon,CellGroup,Dialog  } from 'vant';
 import reply from '@/components/common/reply.vue'
-
+import "./assets/common.css"
 
 Vue.config.productionTip = false
 Vue.use(reply,Icon,CellGroup)
