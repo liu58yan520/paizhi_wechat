@@ -53,7 +53,6 @@
         overflow: hidden;
     }
     .patent .list figure .text h4{
-        font-size: 3.9vw;
         padding-bottom: 1vw;
         white-space:nowrap; 
         text-overflow:ellipsis;
@@ -62,13 +61,11 @@
     .patent .list figure .text p{
         text-align: left;
         color: #999;
-        font-size: 3vw;
         line-height: 5vw;
     }
     .patent .list figure .res{
         float: right;
         margin-top: 5%;
-        font-size: 3.8vw;
     }
 
 </style>

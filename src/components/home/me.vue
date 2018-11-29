@@ -6,7 +6,6 @@
         background-size: contain;
         color: #fff;
         text-align: center;
-        font-size: 5vw;
     }
     .me .top .user{
         position: absolute;
@@ -14,9 +13,7 @@
         top: 5%;
         margin: auto;
     }
-    .me li{
-        font-size:14px;
-    }
+
     .me .top .user img{
         width:15vw;
         margin: auto;

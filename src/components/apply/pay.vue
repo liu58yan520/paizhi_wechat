@@ -8,7 +8,6 @@
     }
     .pay h3{
         text-align: center;
-        font-size: 4vw;
         padding: 2vw 0 3vw;
         background: transparent;
     }
@@ -28,11 +27,9 @@
         width:45%;
         border-radius: 5px;
         padding: 6px 0;
-        font-size: 4vw;
     }
     .pay .feijian{
         padding: 10px 16px;
-        font-size: 14px;
     }
     .pay .feijian p{
         float: left;
@@ -43,14 +40,12 @@
     }
     .pay h4{
         padding: 10px 0;
-        font-size: 14px;
         width:calc(100% - 38px);
         margin: auto;
         border-bottom: 1px solid #eee;
     }
     .pay h5{
         padding: 6px 0;
-        font-size: 12px;
     }
     .pay .money{
         float: right;
@@ -73,7 +68,6 @@
         box-sizing: border-box;
         width:90%;
         margin: auto;
-        font-size: 14px;
         padding: 10px 0;
         position: relative;
     }
@@ -109,14 +103,11 @@
         padding: 10px 0; 
         width:90%;
         margin: auto;
-        font-size: 14px;
         text-align: right;
     }
     .pay .count em{
         font-style:normal;
         margin-right: 30px;
-        font-size: 15px;
-
     }
     .pay .btn_bottom .fm_btn{
         position: initial;

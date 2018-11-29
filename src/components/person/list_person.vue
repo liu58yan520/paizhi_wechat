@@ -3,19 +3,16 @@
     width:100%;
     height: 100%;
     overflow: hidden;
-    font-size: 14px;
 }
     .list_person .list li{
         position: relative;
         padding-bottom: 3vw;
-        font-size: 14px;
     }
     .list_person .list ul{
         padding: 0;
         margin: 0;
     }
     .list_person .list li span{
-        font-size: 14px;
         color: #999;
     }
     .list_person .list li .index{
@@ -31,16 +28,12 @@
         text-align: center;
         text-decoration: none;
     }
-    .list_person .list li h4{
-        font-size: 4.2vw;
-    }
+    
     .list_person .list li .add{
         float: right;
         margin: 0 3% 0 0;
-        font-size: 5vw;
     }
     .list_person .list li p{
-        font-size: 3.2vw;
         color: #999;
         margin-top: 2vw;
     }
@@ -51,8 +44,7 @@
         position: absolute;
         width:8vw;
         font-style: normal;
-        font-size:22px;
-        top:35%;
+        top:17px;
         right:1px;
         color:#ccc;
     }
@@ -61,11 +53,9 @@
     }
     .list_person .contact{
         padding: 10px 16px;
-        font-size: 14px;
         color: #333;
     }
     .list_person .contact span{
-        font-size: 14px;
         color: #999;
     }
     .list_person .contact_num{
@@ -74,13 +64,11 @@
         display: block;
         padding: 20px 0 0;
         line-height: 150%;
-        font-size: 14px;
         position: relative;
     }
     .list_person .contact_num input{
         float: right;
         width:70%;
-        font-size: 14px;
         margin-top: -2px;
         border:0;
     }
@@ -119,11 +107,27 @@
         float: left;
         color: #333;
     } 
+    .select_fj{
+        padding-top:5px;
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .select_fj button{
+        border:1px solid #ccc;
+        background: #fff;
+        color: #666;
+    }
      /*  .list_person .list li span:nth-child(2),.list_person .contact span:nth-child(2){
         text-indent: 10px;
         display: block;
         width:280px;
     } */
+    .daiban{
+        width:93%;
+        margin: auto;
+        padding:3vw 0;
+    }
 </style>
 <template>
     <div class="list_person">
@@ -132,7 +136,7 @@
             <hr>
             <div class="list ">
                 <ul>
-                    <li> <span>产品申请人</span> <span>( 拥有专利者 )</span>  
+                    <li class=""> <span>产品申请人</span> <span>( 拥有专利者 )</span>  
                        <router-link :to="{name:'select_person',query:{type:'apply'}}">
                            <van-icon class="add" name="add-o" color="#24A1F5"/>
                         </router-link>
@@ -142,11 +146,18 @@
                         <h4>{{v.name}}</h4>
                         <p>{{v.card}}</p>
                         <van-icon name="close" class="icon"  @click="$store.commit('rm_select_data',{name:'apply',index:i})"/>
+                        <div class="select_fj">
+                            <p>是否费减</p>
+                            <div class="btn">未知 <button>查询</button></div>
+                        </div>
                     </li>
                 </ul>
             </div>
             <hr>
-            <div class="list ">
+            <div class="daiban">
+                <h5>申请待办费减辅助</h5>
+            </div>
+            <!-- <div class="list ">
                 <ul>
                     <li> <span>产品设计人</span><span>( 拥有署名权 )</span>
                         <router-link :to="{name:'select_person',query:{type:'design'}}">
@@ -160,10 +171,11 @@
                         <van-icon name="close" class="icon" @click="$store.commit('rm_select_data',{name:'design',index:i})"/>
                     </li>
                 </ul>
-            </div>
-            <div class="tishi">点击 “&nbsp;<van-icon name="add-o" color="#24A1F5"  />&nbsp;” 添加申请人/设计人</div>
+            </div> 
+            <div class="tishi">点击 “&nbsp;<van-icon name="add-o" color="#24A1F5"  />&nbsp;” 添加申请人/设计人</div> 
             <h4 class="contact"><span>联系人</span><span>( 请输入专利联系人号码 )</span></h4>
             <label class="contact_num">+86<input type="number" minlength="11" maxlength="11" v-model="contact"> </label>
+            -->
         </div>
         <button class="fm_btn" :disabled='test_tel || select_design_man.length==0 || select_apply_man.length==0' @click="$router.push({name:'pay'})"> 下一步</button>
     </div>
@@ -174,7 +186,8 @@ import  {mapState } from 'vuex';
 export default {
     data(){
         return {
-            contact:''
+            contact:'',
+            txt:''
         }
     },
     computed:{

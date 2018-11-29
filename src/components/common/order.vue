@@ -9,16 +9,13 @@
     line-height: 150%;
     color: #fff
 }
-.order .top p{
-    font-size: 13px;
-}
+
 .order .step {
     width:90%;
     margin: auto;
     padding: 15px 0;
     text-align: center;
     color: #999;
-    font-size: 12px;
     line-height: 50px;
     display: flex;
     justify-content: space-between;
@@ -82,7 +79,6 @@
     margin: auto;
     justify-content:space-between;
     color: #999;
-    font-size: 14px;
     border-bottom: 1px solid #eee;
 }
 .order .text_list h4{
@@ -98,13 +94,10 @@
 .order .cost h5,.order .cost .service{
     margin: auto;
     padding: 14px 0;
-    font-size:12px;
 }
 .order .cost .service{
     position: relative;
-    /* border-top: 1px solid #eee; */
-    font-size: 14px;
-    width:92%;
+    width:93%;
 }
 .order .cost .service::before{
     content: "";
@@ -135,12 +128,10 @@
 .order .wait_pay .title{
     text-indent: 4%;
     margin: auto;
-    font-size: 14px;
     padding: 10px 0 0 0;
 }
 .order .wait_pay h4{
     width:96%;
-    font-size: 14px;
     color: red;
     padding: 10px 0 4px;
 }
@@ -171,7 +162,6 @@
     margin: 10px 0;
     padding: 9px 0;
     background: #FFAE19;
-    font-size: 14px;
     color: #fff;
     text-indent: 3%;
 }
@@ -188,7 +178,6 @@
     color: #fff;
     border-radius: 5px;
     border:0;
-    font-size: 4.2vw;
     margin: auto;
     width:88%;
     padding: 2vw 0; 
@@ -196,11 +185,9 @@
 }
 .order h6{
     padding: 10px 16px;
-    font-size: 14px;
 }
 .order .pics{
     text-align: center;
-    font-size: 12px;
 }
 .order .pics .pic{
     width:20%;
@@ -238,12 +225,9 @@
     margin: 13px 20px 0 0 ;
     font-style: normal;
 }
-.order .man .list_man li h4{
-    font-size: 18px;
-}
+
 .order .man .list_man li p{
     color: #999;
-    font-size: 13px;
     margin-top: 5px;
 }
 .order .cost>h4{

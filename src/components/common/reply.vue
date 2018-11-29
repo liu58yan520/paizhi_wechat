@@ -7,7 +7,6 @@
         color: #fff;
         height: 35px;
         line-height: 40px;
-        font-size: 13px;;
         letter-spacing:2px;
         width:100%;
         text-align: left;

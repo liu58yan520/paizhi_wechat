@@ -42,7 +42,6 @@
     margin-bottom: 3px;
 }
 .index_card  p{
-    font-size: 13px;
     color: #999;
 }
 
@@ -99,7 +98,6 @@
     right: 5%;
     background: #e5e5e5;
     color: #999;
-    font-size: 3.5vw;
     height: 30px;
     padding-left: 2vw;
     line-height: 30px;

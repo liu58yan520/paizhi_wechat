@@ -26,13 +26,11 @@
     }
 
     .select_person li .center h4{
-        font-size: 18px;
         line-height: 150%;
         background: transparent;
     }
     .select_person li .center p{
         color: #999;
-        font-size: 4vw;
         line-height: 130%;
     }
     .select_person li img{
@@ -53,9 +51,7 @@
         border-radius: 6px;
         border:0;
         width:45%;
-        padding: 7px 0;
         color: #fff;
-        font-size: 16px;
         background: #ddd;
     }
     .btns button:last-child{

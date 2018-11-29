@@ -8,6 +8,7 @@
   html,body{
     background: #fff;
      font-family:"PingFangSC",'Microsoft YaHei',BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+     font-size: 14px;
   }
   img{
     width:100%;
@@ -26,11 +27,8 @@
   .list{
      text-align: left;
   }
-  
   .list li{
     width:93%;
-    /* font-size: 14px; */
-    font-size: 3.8vw;
     margin: auto;
     border-bottom: 1px solid #eee;
     padding:3vw 0;
@@ -40,12 +38,11 @@
       bottom: 15px;
       display: block;
       width:88%;
+      line-height: 35px;
       color: #fff;
       background: #24A1F5;
       border:0;
       border-radius: 10px;
-      padding: 2.5vw 0;
-      font-size: 4.2vw;
       left: 0;right: 0;
       outline: none;
       margin: auto;
@@ -53,7 +50,14 @@
   button:disabled{
     background: #ddd;
   }
-  
+  button{
+    border:0;
+    padding:0 5px;
+    line-height: 30px;
+    background: #24A1F5;
+    color: #fff;
+    border-radius: 5px;
+  }
   #case_pic_btn{
       width:70%;
       padding: 1.3vw 0;
@@ -61,11 +65,11 @@
       color: #fff;
       border-radius: 4px;
       background: #24A1F5;
-      font-size: 4vw;
       border:0;
       display: block;
       z-index: 10001;
   }
+
   .van-switch{ background: #f2f2f2!important;}
   .van-switch--on{ background: #24A1F5 !important; }
   .van-cell{ padding:12px 15px;}

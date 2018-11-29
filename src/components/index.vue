@@ -8,7 +8,6 @@
         justify-content: space-around;
         padding: 3px 0;
         border-top: 1px solid #eee;
-        font-size: 3vw;
         color: #aaa;
     }
     .button_nav svg{

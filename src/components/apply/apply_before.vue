@@ -18,7 +18,6 @@
     }
     .apply_before figure figcaption ul{
         list-style-type: none;
-        font-size: 13px;
         margin-left: 33vw;
         
     }
@@ -27,7 +26,6 @@
         line-height: 2.3ch;
     }
     .apply_before figure figcaption  h4{
-        font-size: 4vw;
         display: block;
         text-align: left;
     }
@@ -40,7 +38,6 @@
         background: #FFB01D;
         color: #fff;
         padding: 8px 35px;
-        font-size: 10px;
         border-radius: 5px;
         /* position: absolute;
         right: 0;

@@ -12,14 +12,12 @@
         border-bottom: 1px solid #eee;
     }
     .add_person .public h4{
-        font-size: 15px;
         float: left;
         margin: 2px 30px 0  0;
     }
      .add_person .public p{
          float: right;
          color: #999;
-         font-size: 13px;
          margin-top: 5px;
      }
      .add_person .van-cell-group::after{
@@ -28,7 +26,6 @@
      .add_person .case{
          padding: 10px 0;
          width:93%;
-         font-size: 14px;
          margin: auto;
          border-bottom: 1px solid #eee;
      }
@@ -36,7 +33,6 @@
          float: left;
          width:90px;
          color: #333;
-         font-size: 14px;
      }
 
 </style>

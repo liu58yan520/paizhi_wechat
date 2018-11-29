@@ -40,7 +40,6 @@
     }
     .add_product .pic_box .case_pic p{
         margin-top: 5px;
-        font-size: 3.5vw;
     }
     .add_product .diy_case_pic{
         width:100%;
@@ -69,11 +68,9 @@
         padding-top:8px;
         display: block;
         float: left;
-        font-size: 14px;
         margin-right: 32px;
     }
     .add_product .switch p:nth-child(2){
-        font-size: 14px;
         color: #999;
         padding: 8px 0 0 0;
         box-sizing: border-box;
@@ -115,7 +112,6 @@
         transform: translateX(0);
     } */
     .add_product h3{
-        font-size: 14px;
          padding: 10px 15px;
     }
     .add_product .components>div{
@@ -144,7 +140,6 @@
     .add_case_item{
         clear: both;
         padding: 10px 16px;
-        font-size: 14px;
         border-top: 1px solid #eee;
         border-bottom: 1px solid #eee;
     }
@@ -154,7 +149,6 @@
     .add_product .components .item h3 i{
         float: right;
         margin-right: 3%;
-        font-size: 17px;
     }
 </style>
 

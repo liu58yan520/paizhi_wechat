@@ -1,6 +1,4 @@
-<style>
 
-</style>
 <template>
     <div class="feijian">
         <van-field label="备案人名称"  placeholder="请输入用户名" />

@@ -7,7 +7,6 @@
 }
 .book_list li{
     padding: 16px 0;
-    font-size: 14px;
     display: flex;
     line-height: 30px;
     width:94%;
@@ -76,7 +75,6 @@
     display: flex;
     justify-content: space-between;
     margin: auto;
-    font-size: 12px;
     color: #999;
     text-align: center;
 }
