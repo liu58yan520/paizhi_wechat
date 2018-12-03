@@ -140,15 +140,15 @@
     </div>
 </template>
 <script>
-import { Swipe, SwipeItem } from 'vant';
+import { Swipe, SwipeItem} from 'vant';
 export default {
-    components:{
-        'van-swipe-item':SwipeItem,
-        'van-swipe':Swipe
-    },
     created(){
         document.title="派智知识产权平台"
-    }
+    },
+       components:{
+        'van-swipe-item':SwipeItem,
+        'van-swipe':Swipe,
+    },
     
 }
 </script>

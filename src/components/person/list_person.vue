@@ -144,7 +144,7 @@
                     <li v-for="(v,i) in select_apply_man" :key="i">
                         <i class="index">{{i+1}}</i>
                         <h4>{{v.name}}</h4>
-                        <p>{{v.card}}</p>
+                        <p>{{v.no}}</p>
                         <van-icon name="close" class="icon"  @click="$store.commit('rm_select_data',{name:'apply',index:i})"/>
                         <div class="select_fj">
                             <p>是否费减</p>
@@ -167,7 +167,7 @@
                     <li v-for="(v,i) in select_design_man" :key="i">
                         <i class="index">{{i+1}}</i>
                         <h4>{{v.name}}</h4>
-                        <p>{{v.card}}</p>
+                        <p>{{v.no}}</p>
                         <van-icon name="close" class="icon" @click="$store.commit('rm_select_data',{name:'design',index:i})"/>
                     </li>
                 </ul>

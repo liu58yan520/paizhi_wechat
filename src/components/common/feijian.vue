@@ -3,7 +3,7 @@
     <div class="feijian">
         <van-field label="备案人名称"  placeholder="请输入用户名" />
         <van-field label="证件号码"  placeholder="输入18位身份证号码" />
-        <button :disabled=" !from.name || !from.card ">查询</button>
+        <button :disabled=" !from.name || !from.no ">查询</button>
     </div>
 </template>
 <script>

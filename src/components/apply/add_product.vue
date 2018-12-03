@@ -156,7 +156,7 @@
     <div class="add_product"> 
         <div class="diy_case_pic" v-show="case_pic_show">
             <img :src=" 'static/case_'+case_pic_name+'.jpg' " class="case_pic">
-            <van-uploader :after-read="onUpload_case">
+            <van-uploader :after-read="onUpload_case" >
                 <button id='case_pic_btn'>我知道了</button>
             </van-uploader>
         </div>
@@ -172,13 +172,13 @@
                 />
 
                 <van-field
-                    v-model="formItem.use"
+                    v-model="formItem.desp"
                     type="textarea"
                     label="产品用途"
                     placeholder="如：本外观设计产品用于室外照明"
                 />
                 <van-field
-                    v-model="formItem.design"
+                    v-model="formItem.key_points"
                     label="设计要点"
                     placeholder="如：照明"
                 />
@@ -197,40 +197,40 @@
                 <van-tab class="pro_tabs_item" >
                     <div slot="title" >单一产品</div>
                     <div class="pic_box" >
-                        <div class="case_pic" @click="upload_case('main')">
-                            <img :src="formItem.alonePics.main?formItem.alonePics.main:'static/add_pic.svg'">
+                        <div class="case_pic" @click="upload_case('主视图')">
+                            <img :src="formItem.alonePics['主视图']?formItem.alonePics['主视图']:'static/add_pic.svg'">
                             <p>主视图</p>
-                            <input type="hidden" :value="formItem.alonePics.main">
+                            <input type="hidden" :value="formItem.alonePics['主视图']">
                         </div>
-                        <div class="case_pic" @click="upload_case('after')">
-                            <img :src="formItem.alonePics.after?formItem.alonePics.after:'static/add_pic.svg'">
+                        <div class="case_pic" @click="upload_case('后视图')">
+                            <img :src="formItem.alonePics['后视图']?formItem.alonePics['后视图']:'static/add_pic.svg'">
                             <p>后视图</p>
-                            <input type="hidden" :value="formItem.alonePics.after">
+                            <input type="hidden" :value="formItem.alonePics['后视图']">
                         </div>
-                        <div class="case_pic" @click="upload_case('up')">
-                            <img :src="formItem.alonePics.up?formItem.alonePics.up:'static/add_pic.svg'">
+                        <div class="case_pic" @click="upload_case('俯视图')">
+                            <img :src="formItem.alonePics['俯视图']?formItem.alonePics['俯视图']:'static/add_pic.svg'">
                             <p>俯视图</p>
-                            <input type="hidden" :value="formItem.alonePics.up">
+                            <input type="hidden" :value="formItem.alonePics['俯视图']">
                         </div>
-                        <div class="case_pic" @click="upload_case('down')">
-                            <img :src="formItem.alonePics.down?formItem.alonePics.down:'static/add_pic.svg'">
+                        <div class="case_pic" @click="upload_case('仰视图')">
+                            <img :src="formItem.alonePics['仰视图']?formItem.alonePics['仰视图']:'static/add_pic.svg'">
                             <p>仰视图</p>
-                            <input type="hidden" :value="formItem.alonePics.down">
+                            <input type="hidden" :value="formItem.alonePics['仰视图']">
                         </div>
-                        <div class="case_pic" @click="upload_case('left')">
-                            <img :src="formItem.alonePics.left?formItem.alonePics.left:'static/add_pic.svg'">
+                        <div class="case_pic" @click="upload_case('左视图')">
+                            <img :src="formItem.alonePics['左视图']?formItem.alonePics['左视图']:'static/add_pic.svg'">
                             <p>左视图</p>
-                            <input type="hidden" :value="formItem.alonePics.left">
+                            <input type="hidden" :value="formItem.alonePics['左视图']">
                         </div>
-                        <div class="case_pic" @click="upload_case('right')">
-                            <img :src="formItem.alonePics.right?formItem.alonePics.right:'static/add_pic.svg'">
+                        <div class="case_pic" @click="upload_case('右视图')">
+                            <img :src="formItem.alonePics['右视图']?formItem.alonePics['右视图']:'static/add_pic.svg'">
                             <p>右视图</p>
-                            <input type="hidden" :value="formItem.alonePics.right">
+                            <input type="hidden" :value="formItem.alonePics['右视图']">
                         </div>
-                        <div class="case_pic" @click="upload_case('_3d')">
-                            <img :src="formItem.alonePics._3d?formItem.alonePics._3d:'static/add_pic.svg'">
+                        <div class="case_pic" @click="upload_case('立体图')">
+                            <img :src="formItem.alonePics['立体图']?formItem.alonePics['立体图']:'static/add_pic.svg'">
                             <p>立体图</p>
-                            <input type="hidden" :value="formItem.alonePics._3d">
+                            <input type="hidden" :value="formItem.alonePics['立体图']">
                         </div>
                     </div>
                 </van-tab>
@@ -242,81 +242,82 @@
                         <div class="Whole">
                             <h3>整体照片</h3>
                             <div class="pic_box" >
-                                <div class="case_pic" @click="upload_case('main',true)">
-                                    <img :src="formItem.Whole.main?formItem.Whole.main:'static/add_pic.svg'">
+                                <div class="case_pic" @click="upload_case('主视图',true)">
+                                    <img :src="formItem.Whole['主视图']?formItem.Whole['主视图']:'static/add_pic.svg'">
                                     <p>主视图</p>
-                                    <input type="hidden" :value="formItem.Whole.main">
+                                    <input type="hidden" :value="formItem.Whole['主视图']">
                                 </div>
-                                <div class="case_pic" @click="upload_case('after',true)">
-                                    <img :src="formItem.Whole.after?formItem.Whole.after:'static/add_pic.svg'">
+                                <div class="case_pic" @click="upload_case('后视图',true)">
+                                    <img :src="formItem.Whole['后视图']?formItem.Whole['后视图']:'static/add_pic.svg'">
                                     <p>后视图</p>
-                                    <input type="hidden" :value="formItem.Whole.after">
+                                    <input type="hidden" :value="formItem.Whole['后视图']">
                                 </div>
-                                <div class="case_pic" @click="upload_case('up',true)">
-                                    <img :src="formItem.Whole.up?formItem.Whole.up:'static/add_pic.svg'">
+                                <div class="case_pic" @click="upload_case('俯视图',true)">
+                                    <img :src="formItem.Whole['俯视图']?formItem.Whole['俯视图']:'static/add_pic.svg'">
                                     <p>俯视图</p>
-                                    <input type="hidden" :value="formItem.Whole.up">
+                                    <input type="hidden" :value="formItem.Whole['俯视图']">
                                 </div>
-                                <div class="case_pic" @click="upload_case('down',true)">
-                                    <img :src="formItem.Whole.down?formItem.Whole.down:'static/add_pic.svg'">
+                                <div class="case_pic" @click="upload_case('仰视图',true)">
+                                    <img :src="formItem.Whole['仰视图']?formItem.Whole['仰视图']:'static/add_pic.svg'">
                                     <p>仰视图</p>
-                                    <input type="hidden" :value="formItem.Whole.down">
+                                    <input type="hidden" :value="formItem.Whole['仰视图']">
                                 </div>
-                                <div class="case_pic" @click="upload_case('left',true)">
-                                    <img :src="formItem.Whole.left?formItem.Whole.left:'static/add_pic.svg'">
+                                <div class="case_pic" @click="upload_case('左视图',true)">
+                                    <img :src="formItem.Whole['左视图']?formItem.Whole['左视图']:'static/add_pic.svg'">
                                     <p>左视图</p>
-                                    <input type="hidden" :value="formItem.Whole.left">
+                                    <input type="hidden" :value="formItem.Whole['左视图']">
                                 </div>
-                                <div class="case_pic" @click="upload_case('right',true)">
-                                    <img :src="formItem.Whole.right?formItem.Whole.right:'static/add_pic.svg'">
+                                <div class="case_pic" @click="upload_case('右视图',true)">
+                                    <img :src="formItem.Whole['右视图']?formItem.Whole['右视图']:'static/add_pic.svg'">
                                     <p>右视图</p>
-                                    <input type="hidden" :value="formItem.Whole.right">
+                                    <input type="hidden" :value="formItem.Whole['右视图']">
                                 </div>
-                                <div class="case_pic" @click="upload_case('_3d',true)">
-                                    <img :src="formItem.Whole._3d?formItem.Whole._3d:'static/add_pic.svg'">
+                                <div class="case_pic" @click="upload_case('立体图',true)">
+                                    <img :src="formItem.Whole['立体图']?formItem.Whole['立体图']:'static/add_pic.svg'">
                                     <p>立体图</p>
-                                    <input type="hidden" :value="formItem.Whole._3d">
+                                    <input type="hidden" :value="formItem.Whole['立体图']">
                                 </div>
                             </div>
                         </div>
                         <div class="components" ref="components">
                             <div class="item" v-for="(v,i) in formItem.components" :key='i' >
-                                <h3>组件套装 {{i+1 | str_china}}  <van-icon name="close" color='#999' @click="rm_item_pics(i)" v-if="i!=0"/></h3>
+                                 <h3>组件套装 {{i+1}}  <van-icon name="close" color='#999' @click="rm_item_pics(i)" v-if="i!=0"/></h3>
+                                <!-- <h3>组件套装 {{i+1 | str_china}}  <van-icon name="close" color='#999' @click="rm_item_pics(i)" v-if="i!=0"/></h3> -->
                                 <div class="pic_box" >
-                                    <div class="case_pic" @click="upload_case('main',false,i)">
-                                        <img :src="formItem.components[i].main?formItem.components[i].main:'static/add_pic.svg'">
+                                    <div class="case_pic" @click="upload_case('主视图',false,i)">
+                                        <img :src="formItem.components[i]['主视图']?formItem.components[i]['主视图']:'static/add_pic.svg'">
                                         <p>主视图</p>
-                                        <input type="hidden" :value="formItem.components[i].main">
+                                        <input type="hidden" :value="formItem.components[i]['主视图']">
                                     </div>
-                                    <div class="case_pic" @click="upload_case('after',false,i)">
-                                        <img :src="formItem.components[i].after?formItem.components[i].after:'static/add_pic.svg'">
+                                    <div class="case_pic" @click="upload_case('后视图',false,i)">
+                                        <img :src="formItem.components[i]['后视图']?formItem.components[i]['后视图']:'static/add_pic.svg'">
                                         <p>后视图</p>
-                                        <input type="hidden" :value="formItem.components[i].after">
+                                        <input type="hidden" :value="formItem.components[i]['后视图']">
                                     </div>
-                                    <div class="case_pic" @click="upload_case('up',false,i)">
-                                        <img :src="formItem.components[i].up?formItem.components[i].up:'static/add_pic.svg'">
+                                    <div class="case_pic" @click="upload_case('仰视图',false,i)">
+                                        <img :src="formItem.components[i]['仰视图']?formItem.components[i]['仰视图']:'static/add_pic.svg'">
                                         <p>俯视图</p>
-                                        <input type="hidden" :value="formItem.components[i].up">
+                                        <input type="hidden" :value="formItem.components[i]['仰视图']">
                                     </div>
-                                    <div class="case_pic" @click="upload_case('down',false,i)">
-                                        <img :src="formItem.components[i].down?formItem.components[i].down:'static/add_pic.svg'">
+                                    <div class="case_pic" @click="upload_case('仰视图',false,i)">
+                                        <img :src="formItem.components[i]['仰视图']?formItem.components[i]['仰视图']:'static/add_pic.svg'">
                                         <p>仰视图</p>
-                                        <input type="hidden" :value="formItem.components[i].down">
+                                        <input type="hidden" :value="formItem.components[i]['仰视图']">
                                     </div>
-                                    <div class="case_pic" @click="upload_case('left',false,i)">
-                                        <img :src="formItem.components[i].left?formItem.components[i].left:'static/add_pic.svg'">
+                                    <div class="case_pic" @click="upload_case('左视图',false,i)">
+                                        <img :src="formItem.components[i]['左视图']?formItem.components[i]['左视图']:'static/add_pic.svg'">
                                         <p>左视图</p>
-                                        <input type="hidden" :value="formItem.components[i].left">
+                                        <input type="hidden" :value="formItem.components[i]['左视图']">
                                     </div>
-                                    <div class="case_pic" @click="upload_case('right',false,i)">
-                                        <img :src="formItem.components[i].right?formItem.components[i].right:'static/add_pic.svg'">
+                                    <div class="case_pic" @click="upload_case('右视图',false,i)">
+                                        <img :src="formItem.components[i]['右视图']?formItem.components[i]['右视图']:'static/add_pic.svg'">
                                         <p>右视图</p>
-                                        <input type="hidden" :value="formItem.components[i].right">
+                                        <input type="hidden" :value="formItem.components[i]['右视图']">
                                     </div>
-                                    <div class="case_pic" @click="upload_case('_3d',false,i)">
-                                        <img :src="formItem.components[i]._3d?formItem.components[i]._3d:'static/add_pic.svg'">
+                                    <div class="case_pic" @click="upload_case('立体图',false,i)">
+                                        <img :src="formItem.components[i]['立体图']?formItem.components[i]['立体图']:'static/add_pic.svg'">
                                         <p>立体图</p>
-                                        <input type="hidden" :value="formItem.components[i]._3d">
+                                        <input type="hidden" :value="formItem.components[i]['立体图']">
                                     </div>
                                 </div>
                             </div>
@@ -328,7 +329,7 @@
                 </van-tab>
             </van-tabs>
             <div class="bottom">
-                <div class="switch"><p>色彩保护 </p><p>包含产品的色彩</p><van-switch v-model="formItem.color" size="25px" style="margin-top:3px"/><div class="clear"></div></div> 
+                <div class="switch"><p>色彩保护 </p><p>包含产品的色彩</p><van-switch v-model="formItem.is_color_protection" size="25px" style="margin-top:3px"/><div class="clear"></div></div> 
                 <hr>
                 <van-field
                     v-model="formItem.explain"
@@ -352,32 +353,37 @@
 </template>
 <script>
 import { Field,Tab, Tabs,Uploader,Switch  } from 'vant';
+import {pubUpdate} from '@/assets/api'
 export default {
     data(){
         return {
             formItem:{
                 name:'',
-                use:'',
-                design:'',
+                desp:'',
+                key_points:'',
                 alonePics:{},
                 Whole:{},
-                color:false,
+                is_color_protection:false,
+                attachment:[],
+                suit:{
+                    '套装':[],
+                    "整体":[],
+                },
                 components:[
                     {
-                    main:'',
-                    after:'',
-                    up:'',
-                    down:'',
-                    left:'',
-                    right:'',
-                    _3d:'',
+                    "主视图":'',
+                    "后视图":'',
+                    "俯视图":'',
+                    "仰视图":'',
+                    "左视图":'',
+                    "右视图":'',
+                    "立体图":'',
                     }
                 ],
             },
             active:0,
             case_pic_show:false,
-            case_pic_name:'main',
-            is_Whole:false,
+            case_pic_name:'主视图',
             components_index:0
          }
     },
@@ -396,9 +402,9 @@ export default {
             let strIns = '', chnStr = '';
             let unitPos = 0;
             let zero = true;
-            let chnNumChar = ["零","一","二","三","四","五","六","七","八","九"];
-            let chnUnitSection = ["","万","亿","万亿","亿亿"];
-            let chnUnitChar = ["","十","百","千"];
+            let chnNumChar = ['零","一","二","三","四","五","六","七","八","九'];
+            let chnUnitSection = ['","万","亿","万亿","亿亿'];
+            let chnUnitChar = ['","十","百","千'];
             while(val > 0){
                 var v = val % 10;
                 if(v === 0){
@@ -420,34 +426,63 @@ export default {
         
     },
     methods:{
+
+        dataURLtoFile(dataurl, filename) {//将base64转换为文件
+            var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+            bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+            while(n--){
+                u8arr[n] = bstr.charCodeAt(n);
+            }
+            return new File([u8arr], filename, {type:mime});
+        },
         handleSubmit(data){
-            data.type=this.active?'components':'alonePics'
+            data.type=this.active?'套装':'单一'
+console.log(data);
+            return 
              this.$router.push({  name:'list_person'});
         },
-        upload_case(item,is_Whole,i){ //点击方格
+        upload_case(item,i){ //点击方格
             this.case_pic_name=item;
-            this.is_Whole=is_Whole
             this.case_pic_show=true
             this.components_index=i
         },
         onUpload_case(data){  //点击按钮
-            if(!this.active )
-                this.formItem.alonePics[this.case_pic_name]=data.content
-            else if(this.is_Whole)
-                this.formItem.Whole[this.case_pic_name]=data.content
-            else
-                this.formItem.components[this.components_index][this.case_pic_name]=data.content
+            console.log( this.case_pic_name, this.active,this.is_Whole);
             this.case_pic_show=false
+return 
+            // let formData = new FormData();
+            // formData.append("file", data.file);
+            // formData.append("dir", 'images');
+            // pubUpdate(formData)
+            // .then(res=>{
+            //     let remark=''
+            //     if(!this.active ){
+            //         this.formItem.suit['整体'].push({ [this.case_pic_name]:res.data.data.id})
+            //         this.formItem.alonePics[this.case_pic_name]=data.content
+            //         remark=this.case_pic_name
+            //     }
+            //     else{
+            //         remark='套件'+(this.components_index+1)+'-'+this.case_pic_name
+            //         this.formItem.components[this.components_index][this.case_pic_name]=data.content
+            //     }
+            //     this.formItem.attachment.push({
+            //         case_id:0,case_no:0,attachment_id:res.data.data.id,"type":"外观专利图","remark":'套件'+remark
+            //     })
+            //     this.case_pic_show=false
+
+            // })
+            
+            
         },
         add_case_item(){
             let tmp={
-                    main:'',
-                    after:'',
-                    up:'',
-                    down:'',
-                    left:'',
-                    right:'',
-                    _3d:''
+                    "主视图":'',
+                    "后视图":'',
+                    "俯视图":'',
+                    "仰视图":'',
+                    "左视图":'',
+                    "右视图":'',
+                    "立体图":'',
                 }
             this.formItem.components.push(tmp)
         },

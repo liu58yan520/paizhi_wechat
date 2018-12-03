@@ -71,25 +71,25 @@
 </style>
 <template>
     <div class="patent">
-       <div class="top">
+       <!-- <div class="top">
            <ul>
                <li :class=" ment==0?'active':''" @click="ment=0">全部</li>
                <li :class=" ment==1?'active':''" @click="ment=1">外观设计</li>
                <li :class=" ment==2?'active':''" @click="ment=2">发明</li>
                <li :class=" ment==3?'active':''" @click="ment=3">实用新型</li>
            </ul>
-       </div>
+       </div> -->
        <ul class="list">
-           <li  v-for="(v,i) in data_list" :key="i" v-if="!ment||ment==v.type">
+           <li  v-for="(v,i) in data_list" :key="i" >
                 <router-link :to="{name:'order',params:{type:v.id}}">
                     <figure>
                     　　<img src='static/ico_style.png'>
                     　　<figcaption class="text">
-                    　　　　 <h4>{{v.title}}</h4>
-                            <p>申请人：{{v.man}}</p>
-                            <p>申请日期：{{v.apply_date}}</p>
+                    　　　　 <h4 class="txt_overflow">{{v.name}}</h4>
+                            <p class="txt_overflow">申请人：{{v.applicant_text}}</p>
+                            <p>申请日期：{{v.patent_apply_time.substr(0,10)}}</p>
                     　　</figcaption>
-                        <p class="res" :style="{color:v.res==1?'#FF9600':'#24A1F5'}">{{v.res | guolv_pay}}</p>
+                        <p class="res" style="color:#24A1F5">{{v.prepay_annual_fee_status}}</p>
                 　　　</figure>
                 </router-link>
            </li>
@@ -97,47 +97,17 @@
     </div>
 </template>
 <script>
+import {mycase} from '@/assets/api'
 export default {
     data(){
         return {
-            ment:0,
-            data_list:[
-                {
-                    id:2,
-                    type:1,
-                    title:'一种不规则形状的包装盒子rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr',
-                    man:'江苏大通科技有限公司',
-                    apply_date:'2018-6-25 12:12',
-                    res:1
-                },
-                {
-                    id:3,
-                    type:1,
-                    title:'一种不规则形状的包装盒子',
-                    man:'江苏大通科技有限公司',
-                    apply_date:'2018-6-25 12:12',
-                    res:2
-                },
-                {
-                    id:5,
-                    type:1,
-                    title:'一种不规则形状的包装盒子',
-                    man:'江苏大通科技有限公司',
-                    apply_date:'2018-6-25 12:12',
-                    res:3
-                }
-            ]
+            data_list:[]
         }
     },
-    filters:{
-　　　　　　guolv_pay:function(value){
-　　　　　　　　if(value==1) return '待支付'
-              else if(value==2) return '审核中'
-              else if(value==3) return '审核完成'
-　　　　　　}
-　　　},
     created(){
-        document.title="专利列表"
+        mycase({page:1,type:'外观设计'}).then(res=>{
+            this.data_list=res.data.data.list
+        })
     }
 }
 </script>

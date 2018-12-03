@@ -66,7 +66,7 @@
                     <i @click="select(i)"></i>
                     <div class="center" @click="select(i)">
                         <h4>{{v.name}}</h4>
-                        <p>{{v.card}}</p>
+                        <p>{{v.no}}</p>
                     </div>
                     <router-link :to="{name:'add_person',params:{type:type,person_index:i}}">
                     <img src="static/information_edit.svg">
@@ -76,24 +76,25 @@
             
         </div>
         <div class="btns">
-            <button :style="{'width':$store.state.person_init?'45%':'80%'}"><router-link :to="{name:'add_person',params:{type:this.type}}">新增</router-link></button>
-            <button @click="fm_sub" v-if="$store.state.person_init">确认</button>
-        </div>
+            <button :style="{'width':person_init?'45%':'80%'}"><router-link :to="{name:'add_person',params:{type:this.type}}">新增</router-link></button>
+            <button @click="fm_sub" v-if="person_init">确认</button>
+        </div> 
     </div>
 </template>
 <script>
-import store from "@/vuex/store"
-import  {mapState } from 'vuex';
+import {applicant,designer} from '@/assets/api'
+import  {mapState,mapMutations} from 'vuex';
 export default {
     data(){
         return {
-            all_data:null,
+            all_data:[],
             type:'',
             select_data:new Set()
         }
     },
-    computed:mapState(["all_design_man",'all_apply_man']),
+    computed:mapState(['all_apply_man',"all_design_man",'person_init']),
     methods:{
+        ...mapMutations(['set_select_data']),
         select(index){
             let node=this.$refs.list.getElementsByTagName('i')[index]
             if( node.className.indexOf('active') ==-1){
@@ -108,10 +109,7 @@ export default {
             }
         },
         fm_sub(){
-            if(this.type)
-                this.$store.commit('set_select_data',{name:'apply',data:Array.from( this.select_data)})
-            else
-                this.$store.commit('set_select_data',{name:'design',data:Array.from( this.select_data)})
+            this.set_select_data({name:this.type?'apply':'design',data:Array.from( this.select_data)})
             this.$router.go(-1)
         }
 
@@ -121,12 +119,13 @@ export default {
             this.type=1
             document.title="申请人管理"
             this.all_data=this.all_apply_man
+            
         }else{
             this.type=0
             document.title="设计人管理"
             this.all_data=this.all_design_man
         }
 
-    },store
+    }
 }
 </script>

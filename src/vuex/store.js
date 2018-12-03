@@ -3,19 +3,12 @@ import Vuex from 'vuex'
 Vue.use(Vuex);
 const state={
     type:0,
-    person_init:false,
-    all_design_man:[
-        { id:'1',name:'a',card:'3222222222222',public:true,country:'中国(CH)'},
-        { id:'2',name:'b',card:'3222222222222'},
-        { id:'4',name:'c',card:'3222222222222'}
-    ],
-    all_apply_man:[
-        { id:'1',name:'1镇江亚麻的公司',card:'3222222222222'},
-        { id:'2',name:'2镇江亚麻的公司',card:'3222222222222'},
-        
-    ],
+    person_init:false,  //是否在发布过程中
+    all_design_man:[],
+    all_apply_man:[ ],
     select_design_man:[],
     select_apply_man:[],
+
     book:[
         {name:'冈本有限公司',img:'static/book.jpg'},
         {name:'冈本有限公司',img:'static/book.jpg'},
@@ -60,9 +53,11 @@ const mutations = {
         },
         add_all_data(state,obj){
             if(obj.name=='design'){
-                state.all_design_man.push(obj.data)
+                state.all_design_man.push(...obj.data)
             }else if(obj.name=='apply'){
-                state.all_apply_man.push(obj.data)
+                state.all_apply_man.push(...obj.data)
+                console.log(state.all_apply_man,obj.data);
+                
             }
         }
 

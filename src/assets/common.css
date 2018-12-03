@@ -4,12 +4,13 @@
     -moz-osx-font-smoothing: grayscale;
     color: #333;
   }
-  html,body,h1,h2,h3,h4,h5,h6,p,hr{ font-weight:normal;text-decoration: none;padding: 0;margin: 0;border:0;background: transparent;}
+  html,body,h1,h2,h3,h4,h5,h6,p,hr,input{ font-weight:normal;text-decoration: none;padding: 0;margin: 0;border:0;background: transparent;}
   html,body{
     background: #fff;
      font-family:"PingFangSC",'Microsoft YaHei',BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
      font-size: 14px;
   }
+
   img{
     width:100%;
     display: block;
@@ -33,6 +34,11 @@
     border-bottom: 1px solid #eee;
     padding:3vw 0;
   } 
+  .txt_overflow{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap
+  }
   .fm_btn{
       position: fixed;
       bottom: 15px;
@@ -53,7 +59,8 @@
   button{
     border:0;
     padding:0 5px;
-    line-height: 30px;
+    line-height: 36px;
+    font-size: 14px;
     background: #24A1F5;
     color: #fff;
     border-radius: 5px;

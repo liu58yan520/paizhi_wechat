@@ -6,18 +6,19 @@ Vue.use(Router)
 
 export default new Router({
   
+  
+   
+  
   routes: [
     {
       path: '/',
       name: 'index',
       component: (resolve) => require(['@/components/index.vue'], resolve),
-      meta:{
-        title:'派智知识产权平台'
-      },
+  
       children:[
-        { path: '/home',   component: (resolve) => require(['@/components/home/home.vue'], resolve)},
-        { path: '/patent', component: (resolve) => require(['@/components/home/patent.vue'], resolve)},
-        { path: '/me',     component: (resolve) => require(['@/components/home/me.vue'], resolve)}
+        { path: '/home',   component: (resolve) => require(['@/components/home/home.vue'], resolve),meta:{  title:'派智知识产权'}},
+        { path: '/patent', component: (resolve) => require(['@/components/home/patent.vue'], resolve),meta:{  title:'专利列表'}},
+        { path: '/me',     component: (resolve) => require(['@/components/home/me.vue'], resolve),meta:{  title:'我的'}}
       ]
     },{
       path: '/apply_before',

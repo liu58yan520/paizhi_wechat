@@ -33,8 +33,8 @@
     <div class="me">
         <div class="top">
             <div class="user">
-                <img src="static/face.jpg">
-                <p>哈士</p>
+                <img :src="face">
+                <p>{{nicename}}</p>
             </div>
         </div>
         <hr>
@@ -50,12 +50,27 @@
     </div>
 </template>
 <script>
-import store from "@/vuex/store"
+
+import  {mapState} from 'vuex';
 export default {
+    data(){
+        return {
+            nicename:'',
+            face:''
+        }
+    },
+    computed:{
+         ...mapState({
+            set_person_init: state => state.set_person_init
+         })
+        
+    },
     created(){
-        document.title="我的"
+        this.nicename=localStorage.getItem('nicename')
+        this.face=localStorage.getItem('face')
         this.$store.commit('set_person_init',false)
-    },store
+      
+    }
 }
 </script>
 

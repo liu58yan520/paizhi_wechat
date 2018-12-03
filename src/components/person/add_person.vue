@@ -53,7 +53,7 @@
                     placeholder="请输入姓名"
                 />
                 <van-field
-                    v-model="formdata.card"
+                    v-model="formdata.no"
                     label="证件号码"
                     :placeholder="type?'输入社会统一信用代码或身份证号码':'请输入身份证号码'"
                 />
@@ -111,7 +111,8 @@
 </template>
 <script>
 import { Field,Picker,Switch,Area,Popup } from 'vant';
-import store from "@/vuex/store"
+import {design_add_case} from "@/assets/api"
+import  {mapState } from 'vuex';
 import city from "@/city"
 export default {
     data(){
@@ -137,7 +138,6 @@ export default {
 
     methods:{
          onCountry( value) {
-            // this.formdata.country=value
             this.$set(this.formdata,"country",value)
             this.show=false
             this.country_model=false
@@ -148,37 +148,39 @@ export default {
             this.type_model=false
         },
         fm_submit(data){
-            let name=this.type?"apply":'design'
-            this.$store.commit('add_all_data',{name:name,data:data})
+            this.$store.commit('add_all_data',{name:this.type?"apply":'design',data:[data]})
             this.$router.go(-1)
         },
-        city_select(data){
-           this.$set(this.formdata,"city",data[0].name+'  '+data[1].name+'  '+data[2].name)
+        city_select(data){   //地址选择
+           this.$set(this.formdata,"province",data[0].code)
+           this.$set(this.formdata,"city",data[1].code)
+           this.$set(this.formdata,"country",data[2].code)
            this.city_show=false
         }
 
     },
     computed:{
+        ...mapState(["all_apply_man",'all_design_man']),
         check_empty(){
             if(this.type){
-                if(this.formdata.type && this.formdata.name && this.formdata.card && this.formdata.city && this.formdata.address)
+                if(this.formdata.type && this.formdata.name && this.formdata.no && this.formdata.city && this.formdata.address)
                     return true
             }else{
-                if(this.formdata.name && this.formdata.card && this.formdata.country)
+                if(this.formdata.name && this.formdata.no && this.formdata.country)
                     return true
             }
         }
     },
     created(){
-        if(this.$route.params.type!==0 && this.$route.params.type!==1)
+        if(this.type!==0 && this.type!==1)
             this.$router.push({name:'list_person'})
         this.type=this.$route.params.type
         document.title=this.type? "添加申请人":"添加设计人"
         let person_index=this.$route.params.person_index
         if(person_index>-1){
-           this.formdata= this.type?this.$store.state.all_apply_man[person_index]:this.$store.state.all_design_man[person_index]
+           this.formdata= this.type?this.all_apply_man[person_index]:this.all_design_man[person_index]
         }
-    },store
+    }
 }
 </script>
 
