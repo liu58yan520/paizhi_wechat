@@ -2,35 +2,28 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex);
 const state={
-    type:0,
     person_init:false,  //是否在发布过程中
     all_design_man:[],
     all_apply_man:[ ],
     select_design_man:[],
     select_apply_man:[],
-
-    book:[
-        {name:'冈本有限公司',img:'static/book.jpg'},
-        {name:'冈本有限公司',img:'static/book.jpg'},
-        {name:'冈本有限公司',img:'static/book.jpg'},
-        {name:'冈本有限公司',img:'static/book.jpg'},
-    ],
-    contact:'',
+    fm:{},
+    tech_tel:'',
     
 }
 const mutations = {
-        set_contact(state,data){
-            state.contact=data
+        set_var(state,data){
+            if(data.set_type=='arr'){
+                if(Array.isArray(data.data))
+                    state[data.var_name].push(...data.data) 
+                else 
+                state[data.var_name].push(data.data)
+            }else if(data.set_type=='obj'){
+                state[data.var_name]=Object.assign(state[data.var_name], data.data)
+            }else
+                state[data.var_name]=data.data
         },
-        set_person_init(state,data){
-            state.person_init=data
-        },
-        set_book(state,data){
-            state.book.push(data)
-        },
-        set_type(state,num){
-            state.type=num
-        },
+
         set_select_data(state,obj) {
             if(obj.name=='design'){
                 state.select_design_man.length=0
@@ -52,12 +45,16 @@ const mutations = {
             }
         },
         add_all_data(state,obj){
-            if(obj.name=='design'){
-                state.all_design_man.push(...obj.data)
-            }else if(obj.name=='apply'){
-                state.all_apply_man.push(...obj.data)
-                console.log(state.all_apply_man,obj.data);
-                
+            let str='all_'+obj.name+'_man'
+           
+            if( Array.isArray(obj.data)){
+                state[str]=obj.data
+            }else {
+                for (const el of state[str]) {
+                    if(el.no==obj.data.no)
+                        return 
+                }
+                state[str].push(obj.data)
             }
         }
 

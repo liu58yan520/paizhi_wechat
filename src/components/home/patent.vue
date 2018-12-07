@@ -80,6 +80,12 @@
            </ul>
        </div> -->
        <ul class="list">
+           <van-list
+             v-model="loading"
+            :finished="finished"
+            finished-text="没有更多了"
+            @load="getList"
+           >
            <li  v-for="(v,i) in data_list" :key="i" >
                 <router-link :to="{name:'order',params:{type:v.id}}">
                     <figure>
@@ -93,21 +99,45 @@
                 　　　</figure>
                 </router-link>
            </li>
+           <div class="clear"></div>
+           </van-list>
        </ul>
     </div>
 </template>
 <script>
+import { List } from 'vant';
 import {mycase} from '@/assets/api'
 export default {
     data(){
         return {
-            data_list:[]
+            data_list:[],
+            loading: false,
+            finished: false,
+            page:1,
+            is_zoo:false
         }
     },
+    components:{
+        "van-list":List
+    },
+    methods:{
+        getList(){
+            mycase({page:this.page++,type:'外观设计'}).then(res=>{
+                if(res){
+                    this.data_list=res.data.data.list
+                    if(res.data.data.list.length<=this.data_list.length) {
+                        this.finished=true
+                    }
+                        
+                }
+                 this.loading=false   
+                
+            })
+        }
+    },
+
     created(){
-        mycase({page:1,type:'外观设计'}).then(res=>{
-            this.data_list=res.data.data.list
-        })
+        this.getList()
     }
 }
 </script>

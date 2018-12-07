@@ -1,4 +1,4 @@
-<style>
+<style scoped>
     .select_person{
         padding-bottom: 100px;
     }
@@ -68,15 +68,14 @@
                         <h4>{{v.name}}</h4>
                         <p>{{v.no}}</p>
                     </div>
-                    <router-link :to="{name:'add_person',params:{type:type,person_index:i}}">
+                    <router-link :to="{name:'add_person',query:{type:$route.query.type,person_index:i}}">
                     <img src="static/information_edit.svg">
                     </router-link>
                 </li>
             </ul>
-            
         </div>
         <div class="btns">
-            <button :style="{'width':person_init?'45%':'80%'}"><router-link :to="{name:'add_person',params:{type:this.type}}">新增</router-link></button>
+            <button :style="{'width':person_init?'45%':'80%'}"><router-link :to="{name:'add_person',query:{type:this.$route.query.type}}">新增</router-link></button>
             <button @click="fm_sub" v-if="person_init">确认</button>
         </div> 
     </div>
@@ -92,7 +91,8 @@ export default {
             select_data:new Set()
         }
     },
-    computed:mapState(['all_apply_man',"all_design_man",'person_init']),
+    
+    computed:mapState(['all_apply_man',"all_design_man",'person_init','select_design_man']),
     methods:{
         ...mapMutations(['set_select_data']),
         select(index){
@@ -109,22 +109,41 @@ export default {
             }
         },
         fm_sub(){
-            this.set_select_data({name:this.type?'apply':'design',data:Array.from( this.select_data)})
-            this.$router.go(-1)
+            this.set_select_data({name:this.$route.query.type=='apply'?'apply':'design',data:Array.from( this.select_data)})
+            if(this.$route.query.type=='design')
+                this.$router.push({name:'list_person',params:{ tabs:true}})
+            else 
+                this.$router.back()
         }
 
     },
     mounted(){
+        
         if(this.$route.query.type=="apply"){
-            this.type=1
             document.title="申请人管理"
-            this.all_data=this.all_apply_man
+            if(this.all_apply_man.length)
+                this.all_data=this.all_apply_man
+            else {
+                applicant().then(res=>{
+                    this.all_data=res.data.data.list
+                    this.$store.commit('add_all_data',{name:this.$route.query.type,data:res.data.data.list})
+                })
+            }
+                
             
         }else{
-            this.type=0
             document.title="设计人管理"
-            this.all_data=this.all_design_man
+            if(this.all_design_man.length)
+                this.all_data=this.all_design_man
+            else {
+                designer().then(res=>{
+                    this.all_data=res.data.data.list
+                    this.$store.commit('add_all_data',{name:this.$route.query.type,data:res.data.data.list})
+                })
+            }
+                
         }
+        
 
     }
 }

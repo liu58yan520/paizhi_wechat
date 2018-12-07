@@ -19,33 +19,8 @@
         width:100%;
         padding: 0 0;
     }
-    #dialog{
-        position:fixed;
-        height: 100%;
-        width: 100vh;
-        background: rgba(0,0,0,.5);
-        left: 0;
-        top:0
-    }
-    #dialog .box{
-        position:fixed;
-        width:90%;
-        height: 300px;
-        left: 0;right: 0;
-        top:0;bottom: 0;
-        margin: auto;
-        padding: 5px 0;
-        background: #fff;
-        border-radius: 6px;
-    }
-    #dialog .box .title{
-        text-align: center;
-        font-size: 16px;
-        color: #333;
-        line-height: 45px;
-        margin-bottom: 10px;
-        font-weight: 700;
-    }
+    
+    
     #dialog .box button{
         width:80%;
         margin: auto;
@@ -248,7 +223,7 @@ export default {
     },
     created(){
         let openid= localStorage.getItem('openid') || this.GetUrlParam('openid') 
-        openid='oCIz-0oog8ir8KfZteW82j156rTE'
+        // openid='oCIz-0oog8ir8KfZteW82j156rTE'
         if(openid){
             let str_num=openid.indexOf('#')
             if(str_num>-1)

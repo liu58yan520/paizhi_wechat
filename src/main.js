@@ -4,17 +4,17 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './vuex/store'
-import { Icon,CellGroup,Dialog  } from 'vant';
+import { Icon,CellGroup,Dialog,Toast } from 'vant';
 import reply from '@/components/common/reply.vue'
+// import vConsole from 'vconsole'
 import "./assets/common.css"
 
 Vue.config.productionTip = false
-Vue.use(reply,Icon,CellGroup,Dialog)
+Vue.use(reply,Icon,CellGroup,Dialog,Toast)
 Vue.component("reply",reply)
 Vue.component("van-icon",Icon)
 Vue.component("van-cell-group",CellGroup)
 Vue.component("van-dialog",Dialog)
-
 Vue.prototype.host="http://test.pizhigu.com/"
 
 router.beforeEach((to, from, next) => {

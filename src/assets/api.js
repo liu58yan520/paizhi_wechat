@@ -2,46 +2,48 @@ import axios from 'axios'
 import qs from 'qs'
 import { Toast } from 'vant';
 axios.interceptors.request.use(config => {
-    if(!config.data) config.data={}
-    config.data.openid=localStorage.getItem('openid') 
-    config.data.client_id=localStorage.getItem('client_id')
-    
-    config.data=qs.stringify(config.data)
-    config.headers['http-x-token'] = ''
+    if(config.url!='api/pub/upload'){
+        if(!config.data) config.data={}
+        config.data.openid=localStorage.getItem('openid') 
+        config.data.client_id=localStorage.getItem('client_id')
+        config.data=qs.stringify(config.data) //上传不可用
+    }
     return config
 },err=>{
-    Toast('客户端通讯出错')
+    Toast.fail('客户端通讯出错')
 })
 axios.interceptors.response.use(res => {
         if(!res.data){  //没有任何数据
-            Toast('服务器没有响应')
+            Toast.fail('服务器没有响应')
             return  
         }
+        if(res.config.url=="http://fj.pizhigu.com/index/service/craw_query.html")
+            return res
         switch(res.data.code){
             case 0:
                 return res
                 break
             case 1:   
-                Toast(res.data.msg || '业务数据异常'  )
+                Toast.fail(res.data.msg || '业务数据异常'  )
                 break
             case 401:
             case 402:
             case 403:
                 localStorage.clear()
                 // router.push('login')
-                Toast('登陆超时，请重新登陆')
+                Toast.fail('登陆超时，请重新登陆')
                 break
             default:
-                Toast(res.data.msg ||'数据异常' )
+                Toast.fail(res.data.msg ||'数据异常' )
                 break 
         }
 
 },err => {
     if(err.toString().includes('500')){
-        Toast('平台数据异常' )
+        Toast.fail('平台数据异常' )
 
     }else{
-        Toast('无法连接服务器' )
+        Toast.fail('无法连接服务器' )
     }
 }
 
@@ -62,8 +64,11 @@ const wechat_bind=function(data){
 const userinfo_wechat=function(data){  
     return axios.post('api/client/userinfo_wechat',data);
 }
-const design_add_case=function(data){  
-    return axios.post('api/client/design_add_case',data);
+const add_applicant=function(data){  
+    return axios.post('api/client/add_applicant',data);
+}
+const add_designer=function(data){  
+    return axios.post('api/client/add_designer',data);
 }
 const applicant=function(data){  //申请人列表
     return axios.post('api/client/applicant',data);
@@ -74,14 +79,37 @@ const designer=function(data){  //申请人列表
 const mycase=function(data){  
     return axios.post('api/client/mycase',data);
 }
+const cal_case_money=function(data){  
+    return axios.post('api/client/cal_case_money',data);
+}
+const design_add_case=function(data){  
+    return axios.post('api/client/design_add_case',data);
+}
+const create_wxpay_order=function(data){  
+    return axios.post('api/client/create_wxpay_order',data);
+}
+const jssdk=function(data){  
+    return axios.post('api/pub/jssdk',data);
+}
+
+const cha_fj=function(data){  
+    return axios.post('http://fj.pizhigu.com/index/service/craw_query.html',data);
+}
 
 export {
     sendSMS,
     wechat_bind,
     userinfo_wechat,
-    design_add_case,
     pubUpdate,
     applicant,
     designer,
-    mycase
+    mycase,
+    add_applicant,
+    add_designer,
+    cha_fj,
+    cal_case_money,
+    design_add_case,
+    create_wxpay_order,
+    jssdk
+
 }

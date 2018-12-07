@@ -100,19 +100,14 @@
     </div>
 </template>
 <script>
-import store from "@/vuex/store"
 export default {
     methods:{
         before_sub(){
             this.$refs.btn.style.background='#208BD2'
-            this.$store.commit('set_type',1 )
             this.$router.push({name:'add_product'})
         },
-        // link_book(){
-        //     this.$refs.download.style.background='#E9A017'
-        //     self.location="http://192.168.1.113:8080/static/book.jpg"
-        // }
-    },store,
+
+    }
 }
 </script>
 

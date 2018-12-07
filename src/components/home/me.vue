@@ -51,7 +51,7 @@
 </template>
 <script>
 
-import  {mapState} from 'vuex';
+import  {mapMutations} from 'vuex';
 export default {
     data(){
         return {
@@ -59,16 +59,12 @@ export default {
             face:''
         }
     },
-    computed:{
-         ...mapState({
-            set_person_init: state => state.set_person_init
-         })
-        
-    },
+
+    methods:mapMutations(['set_var']),
     created(){
         this.nicename=localStorage.getItem('nicename')
         this.face=localStorage.getItem('face')
-        this.$store.commit('set_person_init',false)
+        this.set_var('person_init',{var_name:'person_init',data:false})
       
     }
 }
