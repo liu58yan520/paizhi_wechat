@@ -116,7 +116,7 @@
         <van-swipe :autoplay="3000">
             <van-swipe-item><img src="static/banner1.png" alt=""></van-swipe-item>
         </van-swipe>
-        <h3>申请新专利</h3>
+        <h3>申请新专利1</h3>
         <div class="index_card">
             <div>
             <router-link :to="{name:'apply_before',params:{type:1} }">
