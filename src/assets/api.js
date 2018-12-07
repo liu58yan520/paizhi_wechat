@@ -22,7 +22,6 @@ axios.interceptors.response.use(res => {
         switch(res.data.code){
             case 0:
                 return res
-                break
             case 1:   
                 Toast.fail(res.data.msg || '业务数据异常'  )
                 break
@@ -30,8 +29,7 @@ axios.interceptors.response.use(res => {
             case 402:
             case 403:
                 localStorage.clear()
-                // router.push('login')
-                Toast.fail('登陆超时，请重新登陆')
+                self.location=""
                 break
             default:
                 Toast.fail(res.data.msg ||'数据异常' )

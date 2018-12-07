@@ -208,7 +208,7 @@
             </div>
             <h2 class="box_title">联系人 <span>( 输入专利联系人号码 )</span></h2>
             <div class="tech_tel">
-                <input type="number" v-model="tech_tel" oninput="if(value.length>11)value=value.slice(0,11)">
+                <input type="number" v-model="tech_tel" @blur="set_tech_tel" oninput="if(value.length>11)value=value.slice(0,11)">
             </div>
             
         </div>
@@ -253,11 +253,14 @@ export default {
             if(this.tabs)
                 return !this.select_design_man.length || !this.tech_tel ||+this.tech_tel.length!=11
             else 
-                return !this.select_apply_man.length || !this.$route.params.agreement_file_path
+                return !this.select_apply_man.length || !this.agreement_file_path
         }
     },
     methods:{
         ...mapMutations(['set_var','rm_select_data']),
+        set_tech_tel(){
+            this.set_var({var_name:'fm',set_type:'obj',data:{tech_tel:this.tech_tel}})
+        },
         submit(){
             if(!this.tabs){
                 this.tabs=true
@@ -306,14 +309,23 @@ export default {
             if(this.tech_tel&&this.tech_tel.length==11){
                 this.set_var({var_name:'fm',set_type:'obj',data:{tech_tel:this.tech_tel}})
             }
+        },
+        reduction_fee_proxy(){
+            this.set_var({var_name:'fm',set_type:'obj',data:{reduction_fee_proxy:this.reduction_fee_proxy}})
         }
     },
     created(){
         this.set_var({var_name:'person_init',data:true})
         this.tech_tel=this.fm.tech_tel
+        this.reduction_fee_proxy=this.fm.reduction_fee_proxy
         this.tabs=this.$route.params.tabs
-        if(this.$route.params.agreement_file_path)
+        if(this.$route.params.agreement_file_path){
             this.agreement_file_path=this.host+'/'+this.$route.params.agreement_file_path
+            this.set_var({var_name:'fm',set_type:'obj',data:{agreement_file_path:this.host+'/'+this.$route.params.agreement_file_path}})
+        }
+        else if( this.fm.agreement_file_path ){
+            this.agreement_file_path=this.fm.agreement_file_path
+        }
         else 
             this.agreement_file_path='static/add_patent_attorney.svg'
     }

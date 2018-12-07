@@ -34,7 +34,7 @@
         <div class="top">
             <div class="user">
                 <img :src="face">
-                <p>{{nicename}}</p>
+                <p>{{nickname}}</p>
             </div>
         </div>
         <hr>
@@ -42,7 +42,6 @@
             <ul>
                 <li><router-link :to="{name:'select_person',query:{type:'apply'}}">申请人管理</router-link></li>
                 <li><router-link :to="{name:'select_person',query:{type:'design'}}">设计人管理</router-link></li>
-                <li><router-link :to="{name:'book_list'}">委托书管理</router-link></li>
                 <hr>
                 <li><a href="http://fj.pizhigu.com/index/index/query_cost_reduction?from=singlemessage&isappinstalled=0">费减备案查询</a></li>
             </ul>
@@ -50,19 +49,18 @@
     </div>
 </template>
 <script>
-
 import  {mapMutations} from 'vuex';
 export default {
     data(){
         return {
-            nicename:'',
+            nickname:'',
             face:''
         }
     },
 
     methods:mapMutations(['set_var']),
     created(){
-        this.nicename=localStorage.getItem('nicename')
+        this.nickname=localStorage.getItem('nickname')
         this.face=localStorage.getItem('face')
         this.set_var('person_init',{var_name:'person_init',data:false})
       

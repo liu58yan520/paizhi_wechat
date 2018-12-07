@@ -19,7 +19,9 @@
         width:100%;
         padding: 0 0;
     }
-    
+    #dialog .box{
+        height: 300px;
+    }
     
     #dialog .box button{
         width:80%;
@@ -151,7 +153,7 @@
 <script>
 import { Field } from 'vant';
 import  {mapState } from 'vuex';
-import {sendSMS,wechat_bind,userinfo_wechat,applicant,designer} from "@/assets/api"
+import {sendSMS,wechat_bind,applicant,designer} from "@/assets/api"
 export default {
     data(){
         return {
@@ -211,11 +213,11 @@ export default {
         bind_wx(){
             wechat_bind(this.user)
             .then(res=>{
-                if(res.data.data.client || res.data.data.wxuser){
+                if(res){
                     this.userinfo_model=false 
                     localStorage.setItem('client_id',res.data.data.client.id)
                     localStorage.setItem('face',res.data.data.wxuser.headimgurl)
-                    localStorage.setItem('nicename',res.data.data.wxuser.nicename)
+                    localStorage.setItem('nickname',res.data.data.wxuser.nickname)
                 }
                 
             })
@@ -223,23 +225,13 @@ export default {
     },
     created(){
         let openid= localStorage.getItem('openid') || this.GetUrlParam('openid') 
-        // openid='oCIz-0oog8ir8KfZteW82j156rTE'
         if(openid){
             let str_num=openid.indexOf('#')
             if(str_num>-1)
                 openid=openid.substr(0,str_num)
-                if( !localStorage.getItem('client_id') ){
-                    userinfo_wechat().then(res=>{
-                        if(res.data.data.info && res.data.data.wxuser ){
-                            localStorage.setItem('client_id',res.data.data.info.id)
-                            localStorage.setItem('face',res.data.data.wxuser.headimgurl)
-                            localStorage.setItem('nicename',res.data.data.wxuser.nickname)
-                        }else{
-                            this.userinfo_model=true
-                        }
-                    })
-                }
-                localStorage.setItem('openid',openid)
+            if( !localStorage.getItem('client_id') )
+                this.userinfo_model=true
+            localStorage.setItem('openid',openid)
         }else{
             self.location="http://test.pizhigu.com/index/php/pizhi/client/wechat_auth?redirect_url="+window.location.href
         }
